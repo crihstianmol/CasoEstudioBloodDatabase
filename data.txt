@@ -1,0 +1,7 @@
+1307042,    Victor,    calle,    3,    a+,    30021212
+123213,    Victor,    calle,    3,    a+,    31231
+4324,    CArlos,    calle,    3,    o+,    12321
+2312,    Lad,    Cal,    3,    o-,    12321
+12312,    asdasda,    dasa,    0,    a+,    12312312
+123123,    dasdasd,    asdasda,    2,    2,    123123
+121323,    wewqeqwfd,    dadaewe,    2,    a+,    3123131
