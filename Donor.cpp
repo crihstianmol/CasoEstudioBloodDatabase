@@ -16,6 +16,14 @@
     Autor: Victor Bucheli
     Correo: victor.bucheli@correounivalle.edu.co
     Fecha: Octubre 2024
+
+    Modificado por: Crihstian Molina
+    Correo: crihstian.molina@correounivalle.edu.co
+    Fecha: Septiembre 2025
+    
+    Modificaciones:
+    - Se agregó la fecha de donación a los donantes.
+    - Se cambiaron los tipos de datos para el número de teléfono y el tipo de sangre.
 */
 #include "Donor.h"
 #include <sstream>
@@ -30,6 +38,18 @@ void Donor::donorDetails() const {
 
 Donor Donor::parseLine(const std::string& line) {
     Donor d;
+    
+    if (line.empty() || line.find_first_not_of(' ') == std::string::npos) {
+        d.donorId = 0;
+        d.name = "";
+        d.address = "";
+        d.district = 0;
+        d.bloodType = 0;
+        d.number = 0;
+        d.donationDate = "";
+        return d;
+    }
+    
     std::stringstream ss(line);
     std::string token;
 
@@ -37,8 +57,14 @@ Donor Donor::parseLine(const std::string& line) {
     getline(ss, token, ','); d.name = trim(token);
     getline(ss, token, ','); d.address = trim(token);
     getline(ss, token, ','); d.district = std::stoi(trim(token));
-    getline(ss, token, ','); d.bloodType = trim(token);
-    getline(ss, token, ','); d.number = std::stoi(trim(token));
+    getline(ss, token, ','); d.bloodType = std::stoi(trim(token));
+    getline(ss, token, ','); d.number = std::stoll(trim(token));
+    
+    if (std::getline(ss, token, ',')) {
+        d.donationDate = trim(token);
+    } else {
+        d.donationDate = "Fecha no disponible"; 
+    }
 
     return d;
 }

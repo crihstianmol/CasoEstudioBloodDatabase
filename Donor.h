@@ -32,6 +32,14 @@
     Autor: Victor Bucheli
     Correo: victor.bucheli@correounivalle.edu.co
     Fecha: Octubre 2024
+    
+    Modificado por: Crihstian Molina
+    Correo: crihstian.molina@correounivalle.edu.co
+    Fecha: Septiembre 2025
+    
+    Modificaciones:
+    - Se agregó la fecha de donación a los donantes.
+    - Se cambiaron los tipos de datos para el número de teléfono y el tipo de sangre.
 */
 #ifndef DONOR_H
 #define DONOR_H
@@ -40,8 +48,9 @@
 
 class Donor {
 public:
-    int donorId, district, number;
-    std::string name, address, bloodType;
+    int donorId, district, bloodType ;
+    long long number;
+    std::string name, address, donationDate;
 
     void donorDetails() const;
 

@@ -29,6 +29,18 @@
     Autor: Victor Bucheli
     Correo: victor.bucheli@correounivalle.edu.co
     Fecha: Octubre 2024
+
+     
+    Modificado por: Crihstian Molina
+    Correo: crihstian.molina@correounivalle.edu.co
+    Fecha: Septiembre 2025
+    
+    Modificaciones:
+    - Se agregó la visualización de los tipos de sangre.
+    - Se modificó la visualización de los departamentos.
+    - Se agregaron funciones auxiliares para convertir números a texto descriptivo.
+    - Se agregaron funciones auxiliares para obtener una entrada válida de tipo long long.
+    - Se agregaron funciones auxiliares para obtener la fecha y hora actual.
 */
 #ifndef BLOODDATABASE_H
 #define BLOODDATABASE_H
@@ -45,16 +57,24 @@ private:
     std::vector<Donor> donors;
 
     static void displayProvinces();
+    static void displayBloodTypes();
+    
+    static std::string getDepartmentName(int departmentNumber);
+    static std::string getBloodTypeName(int bloodTypeNumber);
+    static std::string getCurrentDateTime();
 
 public:
     static void clearConsole();
     static void waitForKeyPress();
     static int getValidatedInput(const std::string& prompt);
+    static long long getValidatedInputLongLong(const std::string& prompt);
+    static int getOptionalValidatedInput(const std::string& prompt);
 
     void getDonorDetails();
     void writeDataToFile();
     void searchAndDisplay() const;
     void deleteDonor(const std::string& donorName);
+    void displayHistory() const;
 };
 
 #endif // BLOODDATABASE_H
